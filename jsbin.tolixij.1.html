@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2018 by tomekpiwowar (http://jsbin.com/tolixij/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width" initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300i" rel="stylesheet">
+  <title>Zegar JS</title>
+<style id="jsbin-css">
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: #EC9787;
+  font-family: 'Roboto', sans-serif;
+}
+
+#main-header {
+  font-size: 5vw;
+  padding-left: 1vw;
+}
+
+#main-header span {
+  vertical-align: super;
+  font-size: 2.5vw;
+}
+
+#secondary-header {
+  font-size: 2.5vw;
+  padding-left: 1vw;
+}
+
+#clock {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  margin-top: -10vw;
+  font-size: 5vw;
+}
+  
+/* For mobile-devices */
+
+@media only screen and (max-width: 480px) {
+
+  #main-header {
+    font-size: 7vw;	
+    padding-left: 1vw;
+  }
+ 
+  #main-header span {
+  font-size: 3.75vw;
+}
+  
+  #secondary-header {
+    font-size: 3.75vw;
+    padding-left: 1vw;
+  }
+  
+  #clock {
+    margin-top: -15.25vw;
+    font-size: 7vw;
+  }
+
+}
+  
+  
+
+</style>
+</head>
+<body>
+  <div id="main-header">PANTONE<span>&reg;</span> CLOCK</div>
+  <div id="secondary-header">Spring 2018 Top 12 Color Palette</div>
+  <div id="clock">12:13:14</div>
+<script id="jsbin-javascript">
+function digitalClock(){
+var date = new Date();
+var hours = date.getHours();
+var minutes = date.getMinutes();
+var seconds = date.getSeconds();
+
+if (hours <= 9) {
+  hours = '0' + hours;
+} 
+if (minutes <= 9) {
+  minutes = '0' + minutes;
+}
+if (seconds <= 9) {
+  seconds = '0' + seconds;
+} 
+var myClock = hours + ":" + minutes + ":" + seconds;
+  
+document.getElementById('clock').innerHTML = myClock;
+
+setTimeout(function() {
+  digitalClock();
+}, 1000);
+
+}
+
+digitalClock();
+
+
+var pantoneColors = ["#EADEDB", "#ECDB54", "#E94B3C", "#6F9FD8", "#944743", "#DBB1CD", "#EC9787", "#00A591", "#6B5B95", 
+  "#6C4F3D", "#EADEDB", "#BC70A4", "#BFD641"];
+var index = 0;
+setInterval(function() {
+    document.body.style.backgroundColor = (pantoneColors[index++]);
+    if (index == pantoneColors.length)
+        index = 0
+    
+}, 1000);
+
+
+
+ 
+
+
+
+</script>
+</body>
+</html>
